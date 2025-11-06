@@ -8,9 +8,11 @@ import es.fpsumma.dam2.myapplication.ui.screens.editprofile.EditProfileScreen
 import es.fpsumma.dam2.myapplication.ui.screens.home.HomeScreen
 import es.fpsumma.dam2.myapplication.ui.screens.viewprofile.ViewProfileScreen
 
-@Composable
+@Composable //es como el router
 fun AppNavHost(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Routes.HOME) {
         composable(Routes.HOME) { HomeScreen(navController) }
+        composable (Routes.EDIT) {EditProfileScreen(navController)}
+        composable (Routes.VIEW) {ViewProfileScreen(navController)}
     }
 }

@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    val navController = rememberNavController()
+    val navController = rememberNavController() //objeto para moverse por ventanas
     MyApplicationTheme {
         AppNavHost(navController = navController)
     }

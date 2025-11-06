@@ -1,6 +1,7 @@
 package es.fpsumma.dam2.myapplication.ui.screens.viewprofile
 
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
@@ -10,7 +11,7 @@ import es.fpsumma.dam2.myapplication.ui.theme.MyApplicationTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ViewProfileScreen(navController: NavController) {
-
+    Text("Pagina de perfil")
 }
 
 @Preview(showBackground = true)
@@ -20,4 +21,5 @@ fun ProfileScreenPreview() {
     MyApplicationTheme {
         ViewProfileScreen(navController)
     }
+
 }
