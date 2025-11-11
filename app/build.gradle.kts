@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.compose.foundation)
     val composeBom = platform("androidx.compose:compose-bom:2025.10.01")
     val room_version = "2.8.3"
     val nav_version = "2.9.6"
