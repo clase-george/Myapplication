@@ -29,7 +29,13 @@ import es.fpsumma.dam2.myapplication.ui.navigation.Routes
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditProfileScreen(navController: NavController) {
-    var textoIngresado by remember { mutableStateOf("") }
+    var nombre by remember { mutableStateOf("") }
+    var profesion by remember { mutableStateOf("") }
+    var correo by remember { mutableStateOf("") }
+    var telefono by remember { mutableStateOf("") }
+    var ubicacion by remember { mutableStateOf("") }
+    var formacion by remember { mutableStateOf("") }
+
 
     Column {
         Spacer(modifier = Modifier.height(24.dp))
@@ -60,11 +66,11 @@ fun EditProfileScreen(navController: NavController) {
         Column (modifier = Modifier.padding(16.dp)){
             OutlinedTextField(
 
-                value = textoIngresado,
+                value = nombre,
 
 
                 onValueChange = { nuevoTexto ->
-                    textoIngresado = nuevoTexto
+                    nombre = nuevoTexto
                 },
                 modifier = Modifier.fillMaxWidth(),
 
@@ -73,65 +79,76 @@ fun EditProfileScreen(navController: NavController) {
             )
             OutlinedTextField(
 
-                value = textoIngresado,
+                value = profesion,
 
 
                 onValueChange = { nuevoTexto ->
-                    textoIngresado = nuevoTexto
+                    profesion = nuevoTexto
                 },
                 modifier = Modifier.fillMaxWidth(),
 
-                label = { Text("Introduce tu nombre") },
+                label = { Text("Profesión") },
             )
             OutlinedTextField(
 
-                value = textoIngresado,
+                value = correo,
 
 
                 onValueChange = { nuevoTexto ->
-                    textoIngresado = nuevoTexto
+                    correo = nuevoTexto
                 },
                 modifier = Modifier.fillMaxWidth(),
 
-                label = { Text("Introduce tu nombre") },
+                label = { Text("Correo electrónico") },
             )
             OutlinedTextField(
 
-                value = textoIngresado,
+                value = telefono,
 
 
                 onValueChange = { nuevoTexto ->
-                    textoIngresado = nuevoTexto
+                    telefono = nuevoTexto
                 },
                 modifier = Modifier.fillMaxWidth(),
 
-                label = { Text("Introduce tu nombre") },
+                label = { Text("Teléfono") },
             )
             OutlinedTextField(
 
-                value = textoIngresado,
+                value = ubicacion,
 
 
                 onValueChange = { nuevoTexto ->
-                    textoIngresado = nuevoTexto
+                    ubicacion = nuevoTexto
                 },
                 modifier = Modifier.fillMaxWidth(),
 
-                label = { Text("Introduce tu nombre") },
+                label = { Text("Ubicacion") },
             )
             OutlinedTextField(
 
-                value = textoIngresado,
-
+                value = formacion,
 
                 onValueChange = { nuevoTexto ->
-                    textoIngresado = nuevoTexto
+                    formacion = nuevoTexto
                 },
                 modifier = Modifier.fillMaxWidth(),
 
-                label = { Text("Introduce tu nombre") },
+                label = { Text("Formacion académica") },
             )
 
+        }
+        Row (
+            modifier = Modifier
+                .padding(top = 6.dp, start = 245.dp),
+        ){
+            Button(
+                onClick = {
+                    navController.navigate(Routes.VIEW)
+                }
+            ) {
+                Text("Guardar cambios")
+            }
         }
 
 
