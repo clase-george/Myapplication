@@ -11,7 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.ui.graphics.Color
@@ -44,8 +46,16 @@ import java.io.File
 fun ViewProfileScreen(navController: NavController) {
     var nombre by remember { mutableStateOf("") }
     var profesion by remember { mutableStateOf("") }
+    var correo by remember { mutableStateOf("") }
+    var telefono by remember { mutableStateOf("") }
+    var ubicacion by remember { mutableStateOf("") }
+    var formacion by remember { mutableStateOf("") }
     nombre = "George Eduard Turcescu"
     profesion = "Desarrollador Android"
+    correo = "correo@gmail.com"
+    telefono ="+34 123456789"
+    ubicacion ="Madrid, España"
+    formacion ="Grado En Ingenieria Inf"
     Column {
         Spacer(modifier = Modifier.height(24.dp))
         Row(
@@ -79,17 +89,17 @@ fun ViewProfileScreen(navController: NavController) {
                 horizontalArrangement = Arrangement.Center
             ){
                 Image(
-                    // Carga la imagen desde res/drawable/avatar_placeholder.xml (o .png)
-                    painter = painterResource(id = R.drawable.avatar), // <-- CAMBIA ESTO
-                    contentDescription = "Foto de $nombre", // Descripción para accesibilidad
-                    contentScale = ContentScale.Crop, // Escala la imagen para llenar el círculo
+
+                    painter = painterResource(id = R.drawable.avatar),
+                    contentDescription = "Foto de $nombre",
+                    contentScale = ContentScale.Crop,
                     modifier = Modifier
 
                         .size(100.dp) // Define el tamaño del círculo
                         .clip(CircleShape) // Recorta la imagen en forma de círculo
-                        .border( // (Opcional) Añade un borde
+                        .border(
                             width = 2.dp,
-                            color = Color(0xFFFF58C0), // Usa el color de tu app
+                            color = Color(0xFF3F3F3F),
                             shape = CircleShape
                         )
 
@@ -120,21 +130,37 @@ fun ViewProfileScreen(navController: NavController) {
                     color = Color(0xFF646464),
                     fontSize = 15.sp
                 )
-            Column {
-                Row {
-
+            }
+            Column (modifier = Modifier.fillMaxWidth().padding(36.dp)){
+                Row (modifier = Modifier.padding(bottom = 6.dp).fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween){
+                    Text("\uD83D\uDCE7Correo",fontWeight = FontWeight.Bold)
+                    Text(correo, modifier = Modifier.padding(start = 62.dp))
                 }
-                Row {
-
+                Row (modifier = Modifier.padding(bottom = 6.dp).fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween){
+                    Text("\uD83D\uDCF1Teléfono",fontWeight = FontWeight.Bold)
+                    Text(telefono, modifier = Modifier.padding(start = 62.dp))
                 }
-                Row {
-
+                Row (modifier = Modifier.padding(bottom = 6.dp).fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween){
+                    Text("\uD83D\uDCCDUbicación", fontWeight = FontWeight.Bold)
+                    Text(ubicacion, modifier = Modifier.padding(start = 62.dp))
                 }
-                Row {
-
+                Row (modifier = Modifier.padding(bottom = 6.dp).fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween){
+                    Text("\uD83D\uDC68\u200D\uD83C\uDF93Formación", fontWeight = FontWeight.Bold)
+                    Text(formacion, modifier = Modifier.padding(start = 62.dp))
                 }
             }
-
+            Row(modifier = Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.Center) {
+                Button(
+                    onClick = {
+                        navController.navigate(Routes.EDIT)
+                    }
+                ) {
+                    Text("Editar perrfil")
+                }
             }
         }
     }
