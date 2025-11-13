@@ -24,17 +24,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import es.fpsumma.dam2.myapplication.state.ProfileState.correo
+import es.fpsumma.dam2.myapplication.state.ProfileState.formacion
+import es.fpsumma.dam2.myapplication.state.ProfileState.nombre
+import es.fpsumma.dam2.myapplication.state.ProfileState.profesion
+import es.fpsumma.dam2.myapplication.state.ProfileState.telefono
+import es.fpsumma.dam2.myapplication.state.ProfileState.ubicacion
 import es.fpsumma.dam2.myapplication.ui.navigation.Routes
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditProfileScreen(navController: NavController) {
-    var nombre by remember { mutableStateOf("") }
-    var profesion by remember { mutableStateOf("") }
-    var correo by remember { mutableStateOf("") }
-    var telefono by remember { mutableStateOf("") }
-    var ubicacion by remember { mutableStateOf("") }
-    var formacion by remember { mutableStateOf("") }
+
 
 
     Column {

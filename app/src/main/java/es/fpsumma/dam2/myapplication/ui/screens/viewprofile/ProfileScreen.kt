@@ -36,6 +36,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import es.fpsumma.dam2.myapplication.R
+import es.fpsumma.dam2.myapplication.state.ProfileState.correo
+import es.fpsumma.dam2.myapplication.state.ProfileState.formacion
+import es.fpsumma.dam2.myapplication.state.ProfileState.nombre
+import es.fpsumma.dam2.myapplication.state.ProfileState.profesion
+import es.fpsumma.dam2.myapplication.state.ProfileState.telefono
+import es.fpsumma.dam2.myapplication.state.ProfileState.ubicacion
 import es.fpsumma.dam2.myapplication.ui.navigation.Routes
 import es.fpsumma.dam2.myapplication.ui.theme.MyApplicationTheme
 import org.jetbrains.annotations.Async
@@ -44,18 +50,7 @@ import java.io.File
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ViewProfileScreen(navController: NavController) {
-    var nombre by remember { mutableStateOf("") }
-    var profesion by remember { mutableStateOf("") }
-    var correo by remember { mutableStateOf("") }
-    var telefono by remember { mutableStateOf("") }
-    var ubicacion by remember { mutableStateOf("") }
-    var formacion by remember { mutableStateOf("") }
-    nombre = "George Eduard Turcescu"
-    profesion = "Desarrollador Android"
-    correo = "correo@gmail.com"
-    telefono ="+34 123456789"
-    ubicacion ="Madrid, España"
-    formacion ="Grado En Ingenieria Inf"
+
     Column {
         Spacer(modifier = Modifier.height(24.dp))
         Row(
@@ -135,7 +130,8 @@ fun ViewProfileScreen(navController: NavController) {
                 Row (modifier = Modifier.padding(bottom = 6.dp).fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween){
                     Text("\uD83D\uDCE7Correo",fontWeight = FontWeight.Bold)
-                    Text(correo, modifier = Modifier.padding(start = 62.dp))
+                    Text(correo, modifier = Modifier.padding(start = 62.dp)
+                    )
                 }
                 Row (modifier = Modifier.padding(bottom = 6.dp).fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween){
